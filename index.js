@@ -19,7 +19,7 @@ const shell = os.platform() === 'win32' ? 'powershell.exe' : 'bash';
 function startShell(ws) {
   console.log("A new client connected");
 
-  const ptyProcess = pty.spawn(shell, ["java"], {
+  const ptyProcess = pty.spawn(shell, [], {
     name: 'xterm-color',
     cols: 80,
     rows: 30,
@@ -28,7 +28,8 @@ function startShell(ws) {
   });
   console.log(process.env.HOMEDD)
   console.log("PTY process created");
-
+  ptyProcess.write('java -jar Klox.jar')
+  
   ptyProcess.onData(function(data) {
     ws.send(data);
   });
