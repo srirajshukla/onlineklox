@@ -28,7 +28,8 @@ function startShell(ws) {
   });
   console.log(process.env.HOMEDD)
   console.log("PTY process created");
-  ptyProcess.write('java -jar Klox.jar')
+
+  ptyProcess.write('java -jar Klox.jar\r\n')
   
   ptyProcess.onData(function(data) {
     ws.send(data);
