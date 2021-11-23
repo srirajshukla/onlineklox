@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "preinstall": "wget https://github.com/srirajshukla/klox/releases/download/statement_evaluation/Klox.jar",
+    "heroku-postbuild": "bash prebuildscript.sh",
     "dev": "nodemon index.js",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
