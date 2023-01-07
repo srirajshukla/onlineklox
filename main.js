@@ -8486,7 +8486,7 @@
 
   // src/index.js
   var import_xterm = __toESM(require_xterm());
-  var ws = new WebSocket(`ws://localhost:3156`);
+  var ws = new WebSocket(`wss://onlineklox-production.up.railway.app`);
   console.log("created instace of websocket");
   console.log(ws);
   var term = new import_xterm.Terminal();
