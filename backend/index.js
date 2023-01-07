@@ -3,6 +3,8 @@ const app = express();
 const server = require('http').createServer(app);
 const WebSocket = require('ws');
 const PORT = process.env.PORT || 3156;
+const HOST = '0.0.0.0';
+
 const wss = new WebSocket.Server({ server });
 
 wss.on('connection', function(ws) {
@@ -20,7 +22,7 @@ function startShell(ws) {
   
   // console.log(homed)
   
-  const ptyProcess = pty.spawn("java.exe", ["-jar", "Klox.jar"], {
+  const ptyProcess = pty.spawn("java", ["-jar", "Klox.jar"], {
     name: 'xterm-color',
     cols: 80,
     rows: 30,
@@ -41,7 +43,7 @@ function startShell(ws) {
   });
 }
 
-server.listen(PORT, () => {
+server.listen(PORT, HOST, () => {
   console.log(`listening on port ${PORT}`);
 })
 
