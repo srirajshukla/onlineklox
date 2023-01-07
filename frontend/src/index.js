@@ -1,7 +1,7 @@
 import {Terminal} from "xterm";
 import './style.css'
 
-var ws = new WebSocket(`ws://localhost:3156`);
+var ws = new WebSocket(`wss://onlineklox-production.up.railway.app`);
 
 console.log("created instace of websocket");
 console.log(ws);
